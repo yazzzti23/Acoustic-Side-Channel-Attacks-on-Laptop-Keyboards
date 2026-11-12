@@ -1,157 +1,81 @@
-# Acoustic Side-Channel Attacks on Laptop Keyboards
+# 🎧 KeyLeak — Acoustic Side-Channel Attacks on Laptop Keyboards
 
-**An ML-based attack and defence study** — can machine learning identify which key was pressed from the sound of typing, and can simple countermeasures stop it?
+![Python](https://img.shields.io/badge/python-3.12-blue)
+![Status](https://img.shields.io/badge/status-in%20development-orange)
 
-Undergraduate Machine Learning course project, B.Tech Computer Engineering, Thapar Institute of Engineering and Technology.
+**Can a microphone tell which key you pressed, and can you stop it?**
 
-> **Status: work in progress.** The audio-processing pipeline is under development. No classification results have been produced yet. See [Current status](#current-status).
-
----
-
-## Ethics and scope
-
-This is an academic study of an acoustic information-leakage vulnerability and its defences.
-
-- All recordings are made on **my own laptop keyboard** with **my own microphone**.
-- No one else's typing, passwords or private information is recorded or used.
-- The project does **not** include sentence reconstruction, real-time keystroke prediction, or any attack on third parties.
+Every key on a keyboard sounds slightly different. This project builds a machine-learning pipeline that identifies keystrokes from audio alone, then tests simple defences to see how much of that leakage they remove.
 
 ---
 
-## Overview
+## What it does
 
-Different keys on a keyboard sound slightly different because of their position, keycap geometry and the mechanics beneath them. This project investigates whether those differences are enough for a classifier to recover the pressed key.
+**Attack**
+- Records keystroke audio from a laptop's built-in keyboard and microphone
+- Detects individual key presses in continuous audio
+- Extracts MFCC features and classifies the pressed key (A–Z) with SVM and Random Forest
 
-The study has two parts:
-
-1. **Attack:** record keystroke audio, detect individual key presses, extract MFCC features, and train classical ML models to identify one of 26 keys (A–Z).
-2. **Defence:** apply countermeasures (physical dampening, controlled background noise) and measure how much they reduce the attack's accuracy, including whether an attacker who retrains on defended recordings can recover performance (adaptive attacker).
-
-## Scope
-
-| Component | Decision |
-|---|---|
-| Task | Single-key identification |
-| Classes | 26 English alphabet keys (A–Z) |
-| Keyboard | Laptop built-in keyboard |
-| Microphone | Laptop built-in microphone array |
-| Audio | Mono WAV, 44,100 Hz |
-| Features | MFCC |
-| Models | SVM, Random Forest (CNN only if time permits) |
-| Defences | Physical dampening, controlled background noise |
-| Extension | Adaptive attacker |
-| Language | Python 3.12 |
+**Defence**
+- Tests physical dampening and controlled background noise
+- Measures how much each reduces classification accuracy
+- Runs an adaptive-attacker experiment: can an attacker retrain on defended audio and recover?
 
 ## Pipeline
 
 ```text
-Recording -> Raw WAV -> Quality inspection -> Keypress event detection
-   -> Segmentation -> MFCC features -> Session-based train/test split
-   -> SVM / Random Forest -> Evaluation -> Defence experiments -> Analysis
+Audio recording → Event detection → Segmentation → MFCC features
+      → SVM / Random Forest → Evaluation → Defence experiments
 ```
 
-## Current status
+## Tech stack
 
-| Stage | Status |
-|---|---|
-| Environment and microphone test | Done |
-| Single-press pilot recordings | Done (noisy pilot) |
-| Burst recording (5 presses per file) | Done (noisy pilot, A–Z) |
-| Waveform and short-time RMS analysis | Done |
-| Peak-based event detection | Prototype, **not yet validated** |
-| Clean-room baseline recordings | Pending |
-| Reusable segmentation pipeline | Pending |
-| MFCC extraction | Pending |
-| SVM / Random Forest training | Pending |
-| Defence recordings and evaluation | Pending |
+Python 3.12 · NumPy · SciPy · Librosa · scikit-learn · Matplotlib · Seaborn · SoundDevice
 
-### Findings so far
-
-Confirmed or directly observed:
-
-- The laptop microphone captures keystroke transients.
-- Burst recording (several presses in one file) works and is faster than one file per press.
-- A single physical press can produce more than one acoustic event (press and release sounds were heard on playback).
-- On one A-key burst, an RMS + peak detector found 8 candidate events, and adding a 0.4 s minimum peak separation reduced this to 5.
-
-Not yet established:
-
-- That those 5 candidates correspond to the real key-down events. Matching the expected count does not prove correct segmentation.
-- That the method generalises across keys, pressing force, typing speed or noise levels.
-- That the extracted clips contain enough information to classify keys.
-
-The next planned experiment is to log key-down and key-up timestamps during recording to get ground truth for validating the detector.
-
-### Known limitations
-
-- Early sessions were recorded with environmental noise (festival fireworks). They are kept as **noisy pilot data** and are not a clean baseline.
-- The fixed 0.4 s separation and fixed RMS threshold are heuristics that may drop real presses or fail in different noise conditions.
-- Built-in microphone processing (noise suppression, automatic gain) may affect transients and must stay consistent across sessions.
-- Clips from the same raw recording must never be split across train and test sets; evaluation will be separated by recording session.
-- Public keystroke datasets use different keyboards, microphones and conditions. They will be evaluated separately (cross-dataset), not merged into training.
-
-## Repository structure
-
-```text
-AcousticKeyword/
-├── dataset/
-│   ├── raw/              # raw WAV recordings, organised by session
-│   ├── processed/        # extracted keystroke clips
-│   └── metadata.csv
-├── src/
-│   ├── test_microphone.py   # checks that the microphone records
-│   ├── visualize_audio.py   # waveform / spectrogram plots
-│   ├── recording.py         # burst recording script
-│   ├── inspect_burst.py     # waveform inspection of a burst file
-│   └── segment_test.py      # RMS energy + peak detection prototype
-├── notebooks/
-├── models/
-├── results/
-└── report/
-```
-
-## Setup
-
-Requires Python 3.12.
+## Quick start
 
 ```bash
-# create and activate a virtual environment (Windows)
-python -m venv acoustic
-acoustic\Scripts\activate
+git clone <your-repo-url>
+cd AcousticKeyword
 
-# install dependencies
+python -m venv acoustic
+acoustic\Scripts\activate        # Windows
+
 pip install numpy pandas scipy matplotlib seaborn librosa sounddevice soundfile scikit-learn jupyter
 ```
 
-## Usage
-
-Run scripts from the project root with the environment activated.
-
 ```bash
-python src/test_microphone.py     # confirm the microphone works
-python src/recording.py           # record burst sessions
-python src/inspect_burst.py       # plot a recorded burst
-python src/segment_test.py        # RMS energy + peak detection test
+python src/test_microphone.py    # check your microphone
+python src/recording.py          # record keystroke sessions
+python src/segment_test.py       # run the event-detection prototype
+```
+
+## Project structure
+
+```text
+├── src/          # recording, segmentation and analysis scripts
+├── dataset/      # recordings and extracted clips (not tracked)
+├── notebooks/    # exploration and experiments
+├── models/       # trained models
+├── results/      # figures and metrics
+└── report/       # write-up
 ```
 
 ## Roadmap
 
-- [x] Environment and microphone testing
-- [x] Noisy pilot recordings (single-press and burst)
-- [x] RMS energy and initial peak detection
-- [ ] Validate segmentation against logged key timestamps
-- [ ] Record clean baseline sessions in a quiet environment
-- [ ] Reusable segmentation script with metadata and rejected-event logging
+- [x] Recording setup and audio analysis tools
+- [x] Keystroke event-detection prototype
+- [ ] Reliable segmentation pipeline
 - [ ] MFCC feature extraction
-- [ ] SVM and Random Forest baselines with session-separated evaluation
-- [ ] Defence experiments (dampening, background noise)
-- [ ] Adaptive attacker experiment
-- [ ] Final report
+- [ ] SVM and Random Forest classifiers
+- [ ] Defence experiments
+- [ ] Adaptive-attacker evaluation
+- [ ] Final report and results
+
+## Ethics
+
+Built for academic study of a known vulnerability class. All audio is recorded from the author's own keyboard. No third-party typing, passwords or private data is captured or used.
 
 ## Author
 
-Yashti Mittal — B.Tech Computer Engineering, Thapar Institute of Engineering and Technology.
-
-## License
-
-Add a license before making the repository public (for example MIT).
+**Yashti Mittal** — B.Tech Computer Engineering, Thapar Institute of Engineering and Technology
