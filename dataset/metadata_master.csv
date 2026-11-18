@@ -1,0 +1,163 @@
+filename,key,session,condition,recording_type,repetition,sample_rate,duration_s,peak_amplitude,rms_amplitude,quality_flag,intended_presses,actual_presses,notes
+dataset/raw/session_01/A_001.wav,A,session_01,noisy_pilot,single,1,44100,1.5,0.006958,0.000166,LOW_PEAK,1,,
+dataset/raw/session_01/A_002.wav,A,session_01,noisy_pilot,single,2,44100,1.5,0.000397,8.6e-05,LOW_PEAK,1,,
+dataset/raw/session_01/A_003.wav,A,session_01,noisy_pilot,single,3,44100,1.5,0.000427,9.8e-05,LOW_PEAK,1,,
+dataset/raw/session_01/B_001.wav,B,session_01,noisy_pilot,single,1,44100,1.5,0.000427,9.9e-05,LOW_PEAK,1,,
+dataset/raw/session_01/B_002.wav,B,session_01,noisy_pilot,single,2,44100,1.5,0.000427,0.000109,LOW_PEAK,1,,
+dataset/raw/session_01/B_003.wav,B,session_01,noisy_pilot,single,3,44100,1.5,0.005157,0.000176,LOW_PEAK,1,,
+dataset/raw/session_01/C_001.wav,C,session_01,noisy_pilot,single,1,44100,1.5,0.000397,9.3e-05,LOW_PEAK,1,,
+dataset/raw/session_01/C_002.wav,C,session_01,noisy_pilot,single,2,44100,1.5,0.000458,0.000104,LOW_PEAK,1,,
+dataset/raw/session_01/C_003.wav,C,session_01,noisy_pilot,single,3,44100,1.5,0.134521,0.002054,OK,1,,
+dataset/raw/session_01/D_001.wav,D,session_01,noisy_pilot,single,1,44100,1.5,0.126801,0.00149,OK,1,,
+dataset/raw/session_01/D_002.wav,D,session_01,noisy_pilot,single,2,44100,1.5,0.057129,0.00103,OK,1,,
+dataset/raw/session_01/D_003.wav,D,session_01,noisy_pilot,single,3,44100,1.5,0.041962,0.00343,OK,1,,
+dataset/raw/session_01/E_001.wav,E,session_01,noisy_pilot,single,1,44100,1.5,0.007233,0.000277,LOW_PEAK,1,,
+dataset/raw/session_01/E_002.wav,E,session_01,noisy_pilot,single,2,44100,1.5,0.000641,0.000147,LOW_PEAK,1,,
+dataset/raw/session_01/E_003.wav,E,session_01,noisy_pilot,single,3,44100,1.5,0.002594,0.000132,LOW_PEAK,1,,
+dataset/raw/session_01/F_001.wav,F,session_01,noisy_pilot,single,1,44100,1.5,0.00235,0.000257,LOW_PEAK,1,,
+dataset/raw/session_01/F_002.wav,F,session_01,noisy_pilot,single,2,44100,1.5,0.019012,0.000293,OK,1,,
+dataset/raw/session_01/F_003.wav,F,session_01,noisy_pilot,single,3,44100,1.5,0.000519,0.000109,LOW_PEAK,1,,
+dataset/raw/session_01/G_001.wav,G,session_01,noisy_pilot,single,1,44100,1.5,0.385651,0.02976,OK,1,,
+dataset/raw/session_01/G_002.wav,G,session_01,noisy_pilot,single,2,44100,1.5,0.000977,0.000193,LOW_PEAK,1,,
+dataset/raw/session_01/G_003.wav,G,session_01,noisy_pilot,single,3,44100,1.5,0.000488,0.000112,LOW_PEAK,1,,
+dataset/raw/session_01/H_001.wav,H,session_01,noisy_pilot,single,1,44100,1.5,0.081726,0.001,OK,1,,
+dataset/raw/session_01/H_002.wav,H,session_01,noisy_pilot,single,2,44100,1.5,0.01236,0.001116,OK,1,,
+dataset/raw/session_01/H_003.wav,H,session_01,noisy_pilot,single,3,44100,1.5,0.006897,0.000699,LOW_PEAK,1,,
+dataset/raw/session_01/I_001.wav,I,session_01,noisy_pilot,single,1,44100,1.5,0.087524,0.003714,OK,1,,
+dataset/raw/session_01/I_002.wav,I,session_01,noisy_pilot,single,2,44100,1.5,0.051849,0.004169,OK,1,,
+dataset/raw/session_01/I_003.wav,I,session_01,noisy_pilot,single,3,44100,1.5,0.03595,0.00274,OK,1,,
+dataset/raw/session_01/J_001.wav,J,session_01,noisy_pilot,single,1,44100,1.5,0.010712,0.000704,OK,1,,
+dataset/raw/session_01/J_002.wav,J,session_01,noisy_pilot,single,2,44100,1.5,0.006653,0.000953,LOW_PEAK,1,,
+dataset/raw/session_01/J_003.wav,J,session_01,noisy_pilot,single,3,44100,1.5,0.028442,0.002736,OK,1,,
+dataset/raw/session_01/K_001.wav,K,session_01,noisy_pilot,single,1,44100,1.5,0.004425,0.00056,LOW_PEAK,1,,
+dataset/raw/session_01/K_002.wav,K,session_01,noisy_pilot,single,2,44100,1.5,0.022522,0.000815,OK,1,,
+dataset/raw/session_01/K_003.wav,K,session_01,noisy_pilot,single,3,44100,1.5,0.004761,0.000588,LOW_PEAK,1,,
+dataset/raw/session_01/L_001.wav,L,session_01,noisy_pilot,single,1,44100,1.5,0.001801,0.00041,LOW_PEAK,1,,
+dataset/raw/session_01/L_002.wav,L,session_01,noisy_pilot,single,2,44100,1.5,0.007935,0.000456,LOW_PEAK,1,,
+dataset/raw/session_01/L_003.wav,L,session_01,noisy_pilot,single,3,44100,1.5,0.012878,0.000428,OK,1,,
+dataset/raw/session_01/M_001.wav,M,session_01,noisy_pilot,single,1,44100,1.5,0.00592,0.000814,LOW_PEAK,1,,
+dataset/raw/session_01/M_002.wav,M,session_01,noisy_pilot,single,2,44100,1.5,0.00531,0.000928,LOW_PEAK,1,,
+dataset/raw/session_01/M_003.wav,M,session_01,noisy_pilot,single,3,44100,1.5,0.003143,0.000664,LOW_PEAK,1,,
+dataset/raw/session_01/N_001.wav,N,session_01,noisy_pilot,single,1,44100,1.5,0.006622,0.000794,LOW_PEAK,1,,
+dataset/raw/session_01/N_002.wav,N,session_01,noisy_pilot,single,2,44100,1.5,0.003784,0.000769,LOW_PEAK,1,,
+dataset/raw/session_01/N_003.wav,N,session_01,noisy_pilot,single,3,44100,1.5,0.015625,0.001941,OK,1,,
+dataset/raw/session_01/O_001.wav,O,session_01,noisy_pilot,single,1,44100,1.5,0.01825,0.0021,OK,1,,
+dataset/raw/session_01/O_002.wav,O,session_01,noisy_pilot,single,2,44100,1.5,0.068024,0.001929,OK,1,,
+dataset/raw/session_01/O_003.wav,O,session_01,noisy_pilot,single,3,44100,1.5,0.088196,0.00213,OK,1,,
+dataset/raw/session_01/P_001.wav,P,session_01,noisy_pilot,single,1,44100,1.5,0.033234,0.001415,OK,1,,
+dataset/raw/session_01/P_002.wav,P,session_01,noisy_pilot,single,2,44100,1.5,0.013245,0.002024,OK,1,,
+dataset/raw/session_01/P_003.wav,P,session_01,noisy_pilot,single,3,44100,1.5,0.010406,0.001522,OK,1,,
+dataset/raw/session_01/Q_001.wav,Q,session_01,noisy_pilot,single,1,44100,1.5,0.042694,0.003787,OK,1,,
+dataset/raw/session_01/Q_002.wav,Q,session_01,noisy_pilot,single,2,44100,1.5,0.028839,0.000824,OK,1,,
+dataset/raw/session_01/Q_003.wav,Q,session_01,noisy_pilot,single,3,44100,1.5,0.004547,0.000599,LOW_PEAK,1,,
+dataset/raw/session_01/R_001.wav,R,session_01,noisy_pilot,single,1,44100,1.5,0.260559,0.042195,OK,1,,
+dataset/raw/session_01/R_002.wav,R,session_01,noisy_pilot,single,2,44100,1.5,0.00589,0.00103,LOW_PEAK,1,,
+dataset/raw/session_01/R_003.wav,R,session_01,noisy_pilot,single,3,44100,1.5,0.003906,0.000866,LOW_PEAK,1,,
+dataset/raw/session_01/S_001.wav,S,session_01,noisy_pilot,single,1,44100,1.5,0.002045,0.000488,LOW_PEAK,1,,
+dataset/raw/session_01/S_002.wav,S,session_01,noisy_pilot,single,2,44100,1.5,0.030884,0.003361,OK,1,,
+dataset/raw/session_01/S_003.wav,S,session_01,noisy_pilot,single,3,44100,1.5,0.006744,0.000892,LOW_PEAK,1,,
+dataset/raw/session_01/T_001.wav,T,session_01,noisy_pilot,single,1,44100,1.5,0.019165,0.002685,OK,1,,
+dataset/raw/session_01/T_002.wav,T,session_01,noisy_pilot,single,2,44100,1.5,0.002075,0.000476,LOW_PEAK,1,,
+dataset/raw/session_01/T_003.wav,T,session_01,noisy_pilot,single,3,44100,1.5,0.37323,0.006291,OK,1,,
+dataset/raw/session_01/U_001.wav,U,session_01,noisy_pilot,single,1,44100,1.5,0.314575,0.004615,OK,1,,
+dataset/raw/session_01/U_002.wav,U,session_01,noisy_pilot,single,2,44100,1.5,0.034912,0.001035,OK,1,,
+dataset/raw/session_01/U_003.wav,U,session_01,noisy_pilot,single,3,44100,1.5,0.249573,0.003451,OK,1,,
+dataset/raw/session_01/V_001.wav,V,session_01,noisy_pilot,single,1,44100,1.5,0.034241,0.002811,OK,1,,
+dataset/raw/session_01/V_002.wav,V,session_01,noisy_pilot,single,2,44100,1.5,0.013672,0.001406,OK,1,,
+dataset/raw/session_01/V_003.wav,V,session_01,noisy_pilot,single,3,44100,1.5,0.025452,0.0032,OK,1,,
+dataset/raw/session_01/W_001.wav,W,session_01,noisy_pilot,single,1,44100,1.5,0.192352,0.004069,OK,1,,
+dataset/raw/session_01/W_002.wav,W,session_01,noisy_pilot,single,2,44100,1.5,0.016998,0.001171,OK,1,,
+dataset/raw/session_01/W_003.wav,W,session_01,noisy_pilot,single,3,44100,1.5,0.00415,0.00065,LOW_PEAK,1,,
+dataset/raw/session_01/X_001.wav,X,session_01,noisy_pilot,single,1,44100,1.5,0.017792,0.001922,OK,1,,
+dataset/raw/session_01/X_002.wav,X,session_01,noisy_pilot,single,2,44100,1.5,0.008667,0.00116,LOW_PEAK,1,,
+dataset/raw/session_01/X_003.wav,X,session_01,noisy_pilot,single,3,44100,1.5,0.014282,0.001453,OK,1,,
+dataset/raw/session_01/Y_001.wav,Y,session_01,noisy_pilot,single,1,44100,1.5,0.22406,0.020022,OK,1,,
+dataset/raw/session_01/Y_002.wav,Y,session_01,noisy_pilot,single,2,44100,1.5,0.009003,0.000889,LOW_PEAK,1,,
+dataset/raw/session_01/Y_003.wav,Y,session_01,noisy_pilot,single,3,44100,1.5,0.031158,0.000862,OK,1,,
+dataset/raw/session_01/Z_001.wav,Z,session_01,noisy_pilot,single,1,44100,1.5,0.00882,0.000936,LOW_PEAK,1,,
+dataset/raw/session_01/Z_002.wav,Z,session_01,noisy_pilot,single,2,44100,1.5,0.013672,0.001514,OK,1,,
+dataset/raw/session_01/Z_003.wav,Z,session_01,noisy_pilot,single,3,44100,1.5,0.087494,0.002304,OK,1,,
+dataset/raw/session_02/A_burst.wav,A,session_02,noisy_pilot,burst,,44100,5.0,0.120392,0.001383,OK,5,,
+dataset/raw/session_03/A_burst.wav,A,session_03,noisy_pilot,burst,,44100,5.0,0.15152,0.002189,OK,5,,
+dataset/raw/session_03/B_burst.wav,B,session_03,noisy_pilot,burst,,44100,5.0,0.158142,0.003325,OK,5,,
+dataset/raw/session_03/C_burst.wav,C,session_03,noisy_pilot,burst,,44100,5.0,0.225311,0.003281,OK,5,,
+dataset/raw/session_03/D_burst.wav,D,session_03,noisy_pilot,burst,,44100,5.0,0.202942,0.003587,OK,5,,
+dataset/raw/session_03/E_burst.wav,E,session_03,noisy_pilot,burst,,44100,5.0,0.227325,0.004611,OK,5,,
+dataset/raw/session_03/F_burst.wav,F,session_03,noisy_pilot,burst,,44100,5.0,0.155518,0.002854,OK,5,,
+dataset/raw/session_03/G_burst.wav,G,session_03,noisy_pilot,burst,,44100,5.0,0.305267,0.003979,OK,5,,
+dataset/raw/session_03/H_burst.wav,H,session_03,noisy_pilot,burst,,44100,5.0,0.264862,0.003451,OK,5,,
+dataset/raw/session_03/I_burst.wav,I,session_03,noisy_pilot,burst,,44100,5.0,0.17395,0.002969,OK,5,,
+dataset/raw/session_03/J_burst.wav,J,session_03,noisy_pilot,burst,,44100,5.0,0.227631,0.004296,OK,5,,
+dataset/raw/session_03/K_burst.wav,K,session_03,noisy_pilot,burst,,44100,5.0,0.170105,0.003139,OK,5,,
+dataset/raw/session_03/L_burst.wav,L,session_03,noisy_pilot,burst,,44100,5.0,0.242981,0.005734,OK,5,,
+dataset/raw/session_03/M_burst.wav,M,session_03,noisy_pilot,burst,,44100,5.0,0.23999,0.007061,OK,5,,
+dataset/raw/session_03/N_burst.wav,N,session_03,noisy_pilot,burst,,44100,5.0,0.241058,0.003929,OK,5,,
+dataset/raw/session_03/O_burst.wav,O,session_03,noisy_pilot,burst,,44100,5.0,0.335846,0.010051,OK,5,,
+dataset/raw/session_03/P_burst.wav,P,session_03,noisy_pilot,burst,,44100,5.0,0.237122,0.004542,OK,5,,
+dataset/raw/session_03/Q_burst.wav,Q,session_03,noisy_pilot,burst,,44100,5.0,0.209167,0.003801,OK,5,,
+dataset/raw/session_03/R_burst.wav,R,session_03,noisy_pilot,burst,,44100,5.0,0.394257,0.005415,OK,5,,
+dataset/raw/session_03/S_burst.wav,S,session_03,noisy_pilot,burst,,44100,5.0,0.328278,0.006074,OK,5,,
+dataset/raw/session_03/T_burst.wav,T,session_03,noisy_pilot,burst,,44100,5.0,0.149719,0.002907,OK,5,,
+dataset/raw/session_03/U_burst.wav,U,session_03,noisy_pilot,burst,,44100,5.0,0.759674,0.006103,OK,5,,
+dataset/raw/session_03/V_burst.wav,V,session_03,noisy_pilot,burst,,44100,5.0,0.135834,0.003534,OK,5,,
+dataset/raw/session_03/W_burst.wav,W,session_03,noisy_pilot,burst,,44100,5.0,0.160645,0.003492,OK,5,,
+dataset/raw/session_03/X_burst.wav,X,session_03,noisy_pilot,burst,,44100,5.0,0.201752,0.003054,OK,5,,
+dataset/raw/session_03/Y_burst.wav,Y,session_03,noisy_pilot,burst,,44100,5.0,0.109406,0.002147,OK,5,,
+dataset/raw/session_03/Z_burst.wav,Z,session_03,noisy_pilot,burst,,44100,5.0,0.109253,0.002293,OK,5,,
+dataset/raw/session_04/B_burst.wav,B,session_04,noisy_pilot,burst,,44100,5.0,0.346954,0.00389,OK,5,,file re-recorded under same name; earlier take lost
+dataset/raw/session_05/S_burst.wav,S,session_05,clean,burst,,44100,5,0.835846,0.017369,OK,5,5,
+dataset/raw/session_05/L_burst.wav,L,session_05,clean,burst,,44100,5,0.787811,0.017912,OK,5,5,
+dataset/raw/session_05/G_burst.wav,G,session_05,clean,burst,,44100,5,0.507721,0.014138,OK,5,5,
+dataset/raw/session_05/X_burst.wav,X,session_05,clean,burst,,44100,5,0.972351,0.016841,OK,5,5,
+dataset/raw/session_05/J_burst.wav,J,session_05,clean,burst,,44100,5,0.960114,0.017269,OK,5,5,
+dataset/raw/session_05/U_burst.wav,U,session_05,clean,burst,,44100,5,0.934479,0.021764,OK,5,5,
+dataset/raw/session_05/N_burst.wav,N,session_05,clean,burst,,44100,5,0.884766,0.016136,OK,5,5,
+dataset/raw/session_05/rejected/P_burst_rejected_1.wav,P,session_05,clean,burst,,44100,5,0.51889,0.014992,REJECTED,5,,REJECTED_BY_USER; attempt 1
+dataset/raw/session_05/P_burst.wav,P,session_05,clean,burst,,44100,5,0.528107,0.013464,OK,5,5,attempt 2
+dataset/raw/session_05/rejected/F_burst_rejected_1.wav,F,session_05,clean,burst,,44100,5,0.609314,0.020347,REJECTED,5,,REJECTED_BY_USER; attempt 1
+dataset/raw/session_05/F_burst.wav,F,session_05,clean,burst,,44100,5,0.659943,0.015921,OK,5,5,attempt 2
+dataset/raw/session_05/R_burst.wav,R,session_05,clean,burst,,44100,5,0.814026,0.018698,OK,5,5,
+dataset/raw/session_05/E_burst.wav,E,session_05,clean,burst,,44100,5,0.807007,0.017781,OK,5,5,
+dataset/raw/session_05/Z_burst.wav,Z,session_05,clean,burst,,44100,5,0.839722,0.016127,OK,5,5,
+dataset/raw/session_05/C_burst.wav,C,session_05,clean,burst,,44100,5,0.896515,0.014478,OK,5,5,
+dataset/raw/session_05/Y_burst.wav,Y,session_05,clean,burst,,44100,5,0.227234,0.016386,OK,5,5,
+dataset/raw/session_05/A_burst.wav,A,session_05,clean,burst,,44100,5,0.677826,0.014757,OK,5,5,
+dataset/raw/session_05/W_burst.wav,W,session_05,clean,burst,,44100,5,0.629211,0.013977,OK,5,5,
+dataset/raw/session_05/B_burst.wav,B,session_05,clean,burst,,44100,5,0.437653,0.016595,OK,5,5,
+dataset/raw/session_05/H_burst.wav,H,session_05,clean,burst,,44100,5,0.685577,0.014974,OK,5,5,
+dataset/raw/session_05/I_burst.wav,I,session_05,clean,burst,,44100,5,0.851501,0.01813,OK,5,5,
+dataset/raw/session_05/D_burst.wav,D,session_05,clean,burst,,44100,5,0.832001,0.021574,OK,5,5,
+dataset/raw/session_05/M_burst.wav,M,session_05,clean,burst,,44100,5,0.892639,0.016984,OK,5,5,
+dataset/raw/session_05/K_burst.wav,K,session_05,clean,burst,,44100,5,0.855682,0.014546,OK,5,5,
+dataset/raw/session_05/V_burst.wav,V,session_05,clean,burst,,44100,5,0.411957,0.014115,OK,5,5,
+dataset/raw/session_05/rejected/T_burst_rejected_1.wav,T,session_05,clean,burst,,44100,5,0.393799,0.013033,REJECTED,5,,REJECTED_BY_USER; attempt 1
+dataset/raw/session_05/T_burst.wav,T,session_05,clean,burst,,44100,5,0.485962,0.012387,OK,5,5,attempt 2
+dataset/raw/session_05/Q_burst.wav,Q,session_05,clean,burst,,44100,5,0.658264,0.015844,OK,5,5,
+dataset/raw/session_05/O_burst.wav,O,session_05,clean,burst,,44100,5,0.940338,0.019009,OK,5,5,
+dataset/raw/session_06/Z_burst.wav,Z,session_06,clean,burst,,44100,5,0.868591,0.017829,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/P_burst.wav,P,session_06,clean,burst,,44100,5,0.613403,0.015976,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/D_burst.wav,D,session_06,clean,burst,,44100,5,0.873993,0.017335,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/B_burst.wav,B,session_06,clean,burst,,44100,5,0.456024,0.012804,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/A_burst.wav,A,session_06,clean,burst,,44100,5,0.719025,0.01452,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/O_burst.wav,O,session_06,clean,burst,,44100,5,0.851807,0.018604,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/S_burst.wav,S,session_06,clean,burst,,44100,5,0.725647,0.016711,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/R_burst.wav,R,session_06,clean,burst,,44100,5,0.913757,0.016462,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/T_burst.wav,T,session_06,clean,burst,,44100,5,0.616943,0.014639,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/M_burst.wav,M,session_06,clean,burst,,44100,5,0.999969,0.01913,POSSIBLE_CLIPPING,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/J_burst.wav,J,session_06,clean,burst,,44100,5,0.82431,0.016183,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/U_burst.wav,U,session_06,clean,burst,,44100,5,0.814575,0.015015,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/C_burst.wav,C,session_06,clean,burst,,44100,5,0.744385,0.014235,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/N_burst.wav,N,session_06,clean,burst,,44100,5,0.749969,0.013045,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/K_burst.wav,K,session_06,clean,burst,,44100,5,0.960968,0.016664,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/W_burst.wav,W,session_06,clean,burst,,44100,5,0.701233,0.014007,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/H_burst.wav,H,session_06,clean,burst,,44100,5,0.429047,0.011475,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/V_burst.wav,V,session_06,clean,burst,,44100,5,0.554443,0.012764,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/Y_burst.wav,Y,session_06,clean,burst,,44100,5,0.68927,0.014161,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/rejected/X_burst_rejected_1.wav,X,session_06,clean,burst,,44100,5,0.956757,0.015211,REJECTED,5,,REJECTED_BY_USER; logger_count=4; releases=4; other_key_events=0; align=block
+dataset/raw/session_06/X_burst.wav,X,session_06,clean,burst,,44100,5,0.917938,0.017624,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block; attempt 2
+dataset/raw/session_06/L_burst.wav,L,session_06,clean,burst,,44100,5,0.844421,0.016644,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/E_burst.wav,E,session_06,clean,burst,,44100,5,0.816223,0.019389,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/Q_burst.wav,Q,session_06,clean,burst,,44100,5,0.537292,0.015038,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/I_burst.wav,I,session_06,clean,burst,,44100,5,0.92453,0.02274,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/F_burst.wav,F,session_06,clean,burst,,44100,5,0.720337,0.015642,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_06/G_burst.wav,G,session_06,clean,burst,,44100,5,0.412354,0.01323,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
