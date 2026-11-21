@@ -161,3 +161,35 @@ dataset/raw/session_06/Q_burst.wav,Q,session_06,clean,burst,,44100,5,0.537292,0.
 dataset/raw/session_06/I_burst.wav,I,session_06,clean,burst,,44100,5,0.92453,0.02274,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
 dataset/raw/session_06/F_burst.wav,F,session_06,clean,burst,,44100,5,0.720337,0.015642,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
 dataset/raw/session_06/G_burst.wav,G,session_06,clean,burst,,44100,5,0.412354,0.01323,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/Z_burst.wav,Z,session_07,clean,burst,,44100,5,0.805023,0.01832,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/L_burst.wav,L,session_07,clean,burst,,44100,5,0.726044,0.01892,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/I_burst.wav,I,session_07,clean,burst,,44100,5,1.0,0.022092,POSSIBLE_CLIPPING,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/H_burst.wav,H,session_07,clean,burst,,44100,5,0.46637,0.020347,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/D_burst.wav,D,session_07,clean,burst,,44100,5,0.812408,0.023061,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/T_burst.wav,T,session_07,clean,burst,,44100,5,0.530762,0.01974,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/rejected/U_burst_rejected_1.wav,U,session_07,clean,burst,,44100,5,0.728149,0.026324,REJECTED,5,,REJECTED_BY_USER; logger_count=5; releases=4; other_key_events=0; align=block
+dataset/raw/session_07/U_burst.wav,U,session_07,clean,burst,,44100,5,0.782196,0.026875,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block; attempt 2
+dataset/raw/session_07/M_burst.wav,M,session_07,clean,burst,,44100,5,0.974243,0.023325,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/rejected/N_burst_rejected_1.wav,N,session_07,clean,burst,,44100,5,0.713684,0.016597,REJECTED,5,,REJECTED_BY_USER; logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/N_burst.wav,N,session_07,clean,burst,,44100,5,0.710602,0.014305,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block; attempt 2
+dataset/raw/session_07/F_burst.wav,F,session_07,clean,burst,,44100,5,0.446136,0.017178,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/rejected/Y_burst_rejected_1.wav,Y,session_07,clean,burst,,44100,5,0.377319,0.018534,REJECTED,5,,REJECTED_BY_USER; logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/Y_burst.wav,Y,session_07,clean,burst,,44100,5,0.327515,0.012874,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block; attempt 2
+dataset/raw/session_07/K_burst.wav,K,session_07,clean,burst,,44100,5,0.928314,0.016268,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/X_burst.wav,X,session_07,clean,burst,,44100,5,0.815765,0.016101,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/W_burst.wav,W,session_07,clean,burst,,44100,5,0.723572,0.01679,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/V_burst.wav,V,session_07,clean,burst,,44100,5,0.353638,0.014695,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/S_burst.wav,S,session_07,clean,burst,,44100,5,0.766541,0.02883,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/B_burst.wav,B,session_07,clean,burst,,44100,5,0.380188,0.01517,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/P_burst.wav,P,session_07,clean,burst,,44100,5,0.501465,0.014614,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/R_burst.wav,R,session_07,clean,burst,,44100,5,0.755676,0.018066,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/rejected/A_burst_rejected_1.wav,A,session_07,clean,burst,,44100,5,0.415375,0.015888,REJECTED,5,,REJECTED_BY_USER; logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/rejected/A_burst_rejected_2.wav,A,session_07,clean,burst,,44100,5,0.521973,0.016276,REJECTED,5,,REJECTED_BY_USER; logger_count=4; releases=4; other_key_events=0; align=block; attempt 2
+dataset/raw/session_07/A_burst.wav,A,session_07,clean,burst,,44100,5,0.604797,0.016223,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block; attempt 3
+dataset/raw/session_07/rejected/E_burst_rejected_1.wav,E,session_07,clean,burst,,44100,5,0.653839,0.016892,REJECTED,5,,REJECTED_BY_USER; logger_count=4; releases=4; other_key_events=0; align=block; events_outside_window=1
+dataset/raw/session_07/E_burst.wav,E,session_07,clean,burst,,44100,5,0.924805,0.018503,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block; attempt 2
+dataset/raw/session_07/C_burst.wav,C,session_07,clean,burst,,44100,5,0.771515,0.017651,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/G_burst.wav,G,session_07,clean,burst,,44100,5,0.510773,0.01627,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/Q_burst.wav,Q,session_07,clean,burst,,44100,5,0.428314,0.014102,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/J_burst.wav,J,session_07,clean,burst,,44100,5,0.891724,0.015734,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
+dataset/raw/session_07/O_burst.wav,O,session_07,clean,burst,,44100,5,0.491669,0.015525,OK,5,5,logger_count=5; releases=5; other_key_events=0; align=block
