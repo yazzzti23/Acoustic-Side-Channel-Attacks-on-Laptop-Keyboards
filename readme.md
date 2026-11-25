@@ -13,7 +13,7 @@ Every key on a keyboard sounds slightly different. This project builds a machine
 
 **Attack**
 - Records keystroke audio from a laptop's built-in keyboard and microphone
-- Detects individual key presses in continuous audio
+- Cuts a short clip around each key press (timing taken from a key-press log during data collection)
 - Extracts MFCC features and classifies the pressed key (A–Z) with SVM and Random Forest
 
 **Defence**
@@ -24,13 +24,32 @@ Every key on a keyboard sounds slightly different. This project builds a machine
 ## Pipeline
 
 ```text
-Audio recording → Event detection → Segmentation → MFCC features
-      → SVM / Random Forest → Evaluation → Defence experiments
+Recording + key log → Clip around each press → MFCC features
+      → SVM / Random Forest → Session-separated evaluation → Defence experiments
 ```
+
+## Evaluation approach
+
+- The attacker is always trained on some recording sessions and tested on **different** sessions, never on the same recording.
+- Every session is labelled with its condition (`clean`, `dampened`, `noisy`).
+- Rejected or unreliable takes are kept and labelled, not silently dropped.
+
+## Preliminary results (work in progress)
+
+Attacker trained on two clean sessions, tested on sessions it never heard (26 keys, 130 presses per test session, so roughly ±7 points of uncertainty):
+
+| Test setup | SVM top-1 | SVM top-5 |
+|---|---|---|
+| Clean (baseline) | 21.5% | 57.7% |
+| Cloth under the laptop stand | 17.8% | 50.4% |
+| Cloth over the keys | 7.7% | 30.0% |
+| White background noise | 3.8% | 18.5% |
+
+Random guessing is 3.8% top-1 and 19.2% top-5. These numbers are from a first pass and will change as the adaptive-attacker and ablation experiments are added.
 
 ## Tech stack
 
-Python 3.12 · NumPy · SciPy · Librosa · scikit-learn · Matplotlib · Seaborn · SoundDevice
+Python 3.12 · NumPy · SciPy · Librosa · scikit-learn · Pandas · SoundDevice · pynput
 
 ## Quick start
 
@@ -41,36 +60,45 @@ cd AcousticKeyword
 python -m venv acoustic
 acoustic\Scripts\activate        # Windows
 
-pip install numpy pandas scipy matplotlib seaborn librosa sounddevice soundfile scikit-learn jupyter
+pip install numpy pandas scipy matplotlib seaborn librosa sounddevice soundfile scikit-learn pynput jupyter
 ```
 
 ```bash
-python src/test_microphone.py    # check your microphone
-python src/recording.py          # record keystroke sessions
-python src/segment_test.py       # run the event-detection prototype
+python src/test_microphone.py     # check your microphone
+python src/recording.py           # record a keystroke session (with key-press log)
+python src/extract_features.py    # clips + MFCC features -> results/
+python src/train_eval.py          # train on one session, test on another
+python src/eval_defences.py       # clean-trained attacker vs defended sessions
 ```
+
+The raw recordings are not included in the repository.
 
 ## Project structure
 
 ```text
-├── src/          # recording, segmentation and analysis scripts
-├── dataset/      # recordings and extracted clips (not tracked)
+├── src/          # recording, feature extraction and evaluation scripts
+├── dataset/      # recording metadata (raw audio not tracked)
 ├── notebooks/    # exploration and experiments
 ├── models/       # trained models
-├── results/      # figures and metrics
+├── results/      # feature files, figures and metrics
 └── report/       # write-up
 ```
 
 ## Roadmap
 
-- [x] Recording setup and audio analysis tools
-- [x] Keystroke event-detection prototype
-- [ ] Reliable segmentation pipeline
-- [ ] MFCC feature extraction
-- [ ] SVM and Random Forest classifiers
-- [ ] Defence experiments
+- [x] Recording setup with key-press logging and audio alignment
+- [x] Clean, dampened and noisy recording sessions
+- [x] MFCC feature extraction
+- [x] SVM and Random Forest classifiers (session-separated)
+- [x] First defence comparison
 - [ ] Adaptive-attacker evaluation
+- [ ] High-pass filter and clip-window ablations
+- [ ] Live demo (top-3 guesses with confidence)
 - [ ] Final report and results
+
+## Limitations
+
+One laptop, one typist and a small number of presses per key. Segmentation currently uses logged key-press times, which a real attacker would not have. Results show the shape of the effect, not exact figures for other keyboards or people.
 
 ## Ethics
 
