@@ -4,15 +4,15 @@ live_guess.py - real-time guessing session for the acoustic keystroke attack.
 Run from the project root (venv active):
     python demo/live_guess.py                          # live, microphone, 10 random letters
     python demo/live_guess.py --rounds 15
-    python demo/live_guess.py --replay session_17      # no microphone: replay a recorded session
+    python demo/live_guess.py --replay session_16      # no microphone: replay a recorded session
 
 How a round works
   1. The script picks a random letter and shows it to YOU. The model never sees it.
-  2. You press that key 3 times, about 1 second apart, while it records 5 seconds.
-  3. The script finds the 3 loudest clicks (no key log is used), cuts the same short clip around each
-     click as in the experiments, and asks the model about each one.
-  4. The 3 sets of probabilities are multiplied together (they are the same key), and the top 3
-     guesses are shown with a confidence for each.
+  2. It records 5 seconds. Press that key a few times (about 3, roughly 1 second apart) inside that window.
+  3. The script finds the clicks in the audio (no key log is used), cuts a short clip around each one,
+     and asks the model about each clip.
+  4. The clips' probabilities are combined (they are the same key), and ONLY the top 3 guesses are
+     shown, each with a confidence.
   5. It checks the guesses against the real letter and keeps a running score.
 
 Everything is saved to demo/logs/<time>/ (the 5-second recordings in live mode, and results.csv).
@@ -20,7 +20,7 @@ Replay mode refuses to use a session the model was trained on.
 
 Honest limits: one key at a time, a quiet room like the clean recordings is needed, and the numbers
 from a handful of rounds wobble by 10+ points. The confidence is the model's own estimate; with 26
-similar-sounding keys it is usually low, which is accurate, not a bug.
+similar-sounding keys it is often low, which is accurate, not a bug.
 """
 
 import argparse
@@ -36,12 +36,14 @@ import numpy as np
 import soundfile as sf
 from scipy.signal import butter, find_peaks, sosfiltfilt
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))                 # audio_features.py
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
+import audio_features as af  # noqa: E402
 import extract_features as ef  # noqa: E402  (reuses the exact feature code used in the experiments)
 
 SAMPLE_RATE = 44100
 DURATION = 5
-N_PRESSES = 3
+N_PRESSES = 3                 # presses asked for in the 5 s window (fewer clicks are still accepted)
 CLICK_TO_KEYDOWN = 0.021      # measured: the click peak is ~21 ms after the logged key-down
 MIN_SEPARATION = 0.4          # seconds between presses
 MAD_K = 8.0
@@ -125,17 +127,25 @@ def find_clicks(audio, sr, n=N_PRESSES):
 
 
 def clip_at(audio, sr, click_t, pre, post):
+    """A clip of exactly the same length every time, starting `pre` before the estimated key-down."""
     down = click_t - CLICK_TO_KEYDOWN
-    s0, s1 = int(round((down - pre) * sr)), int(round((down + post) * sr))
-    if s0 < 0 or s1 > len(audio):
+    n = af.n_samples(sr, pre, post)
+    s0 = int(round((down - pre) * sr))
+    if s0 < 0 or s0 + n > len(audio):
         return None
-    return audio[s0:s1]
+    return audio[s0:s0 + n]
+
+
+def clip_vector(payload, clip, sr):
+    if payload.get("kind") == "mlp_logmel":
+        return af.logmel_vector(clip, sr)
+    return ef.clip_features(clip, sr)[0]          # older MFCC + SVM models
 
 
 def guess(payload, audio, sr):
-    """Return dict with click times, per-press top-1, and combined probabilities."""
+    """Find the clicks, combine the model's probabilities for them, return the top 3 guesses."""
     clicks = find_clicks(audio, sr)
-    if len(clicks) < N_PRESSES:
+    if len(clicks) == 0:
         return {"clicks": clicks, "ok": False}
     if payload["highpass"] > 0:
         sos = butter(4, payload["highpass"], btype="highpass", fs=sr, output="sos")
@@ -144,15 +154,17 @@ def guess(payload, audio, sr):
     for t in clicks:
         c = clip_at(audio, sr, t, payload["pre"], payload["post"])
         if c is None:
-            return {"clicks": clicks, "ok": False}
-        feats.append(ef.clip_features(c, sr)[0])
+            continue
+        feats.append(clip_vector(payload, c, sr))
+    if not feats:
+        return {"clicks": clicks, "ok": False}
     model, classes = payload["model"], np.array(payload["classes"])
     P = model.predict_proba(np.array(feats))
     logp = np.log(np.clip(P, 1e-6, 1.0)).sum(axis=0)
     comb = np.exp(logp - logp.max())
     comb /= comb.sum()
     order = np.argsort(-comb)
-    return {"clicks": clicks, "ok": True, "per_press_top1": [str(classes[int(np.argmax(p))]) for p in P],
+    return {"clicks": clicks, "ok": True, "used": len(feats),
             "top3": [(str(classes[i]), float(comb[i])) for i in order[:3]]}
 
 
@@ -161,7 +173,7 @@ def main():
     args = parse_args()
     mp = Path(args.model)
     if not mp.exists():
-        raise SystemExit(f"{mp} not found. Run demo/train_model.py first.")
+        raise SystemExit(f"{mp} not found. Run demo/train_demo_model.py first.")
     payload = joblib.load(mp)
     trained_on = set(payload["sessions"])
 
@@ -185,7 +197,7 @@ def main():
     print("=" * 56)
     print("KEYSTROKE GUESSING SESSION" + (f"  (replay of {args.replay})" if args.replay else "  (live microphone)"))
     print(f"Model trained on {len(trained_on)} clean sessions, {payload['n_train']} presses. Chance: 1 in 26.")
-    print(f"Each round: {N_PRESSES} presses of the same key. {len(keys)} rounds. Logs: {log_dir}")
+    print(f"Each round: a 5 second window, press the key about {N_PRESSES} times. {len(keys)} rounds. Logs: {log_dir}")
     print("=" * 56)
 
     for i, target in enumerate(keys, start=1):
@@ -203,48 +215,46 @@ def main():
                 print(f"(replaying a recorded press of key {target})")
             else:
                 flush_input()
-                input(f"Next key: >>> {target} <<<   Press ENTER, then press {target} {N_PRESSES} times...")
+                input(f"Next key: >>> {target} <<<   Press ENTER, then press {target} about {N_PRESSES} times within 5 seconds...")
                 for c in range(COUNTDOWN, 0, -1):
                     print(f"  {c}...", flush=True)
                     time.sleep(1)
                 print("Starting the microphone...", flush=True)
                 audio = record_round(args.device, lambda t=target: print(
-                    f">>> PRESS {t} {N_PRESSES} TIMES, about 1 second apart <<<", flush=True))
+                    f">>> PRESS {t} NOW (about {N_PRESSES} times, about 1 second apart) <<<", flush=True))
                 sr = SAMPLE_RATE
                 flush_input()
                 sf.write(log_dir / f"round{i:02d}_{target}_try{attempt}.wav", audio, sr, subtype="PCM_16")
             result = guess(payload, audio, sr)
             if result["ok"]:
                 break
-            print(f"Found only {len(result['clicks'])} clear click(s) instead of {N_PRESSES}."
+            print("Could not find a clear key click in that window."
                   + (" Try again." if (attempt < 3 and not args.replay) else ""))
             if args.replay:
                 break
         if result is None or not result["ok"]:
-            rows.append({"round": i, "target": target, "detected": "no", "top1": "", "top1_conf": "",
-                         "top2": "", "top3": "", "hit_top1": "", "hit_top3": "", "per_press_top1": ""})
+            rows.append({"round": i, "target": target, "detected": "no", "clicks_used": "", "top1": "",
+                         "top1_conf": "", "top2": "", "top3": "", "hit_top1": "", "hit_top3": ""})
             print("No usable detection this round (counted separately, not hidden).")
             continue
 
         t3 = result["top3"]
         hit1 = t3[0][0] == target
         hit3 = target in [k for k, _ in t3]
-        print("\nThe model's guesses:")
+        print(f"\nThe model's top 3 guesses (from {result['used']} click(s) found):")
         for rank, (k, p) in enumerate(t3, start=1):
             print(f"  {rank}. {k}   {p * 100:5.1f}%")
-        print(f"Per-press first guesses: {' '.join(result['per_press_top1'])}")
         print(f"Real key: {target}   ->  " + ("TOP-1 CORRECT" if hit1 else ("in top 3" if hit3 else "missed")))
-        rows.append({"round": i, "target": target, "detected": "yes", "top1": t3[0][0],
-                     "top1_conf": round(t3[0][1], 4), "top2": t3[1][0], "top3": t3[2][0],
-                     "hit_top1": int(hit1), "hit_top3": int(hit3),
-                     "per_press_top1": "".join(result["per_press_top1"])})
+        rows.append({"round": i, "target": target, "detected": "yes", "clicks_used": result["used"],
+                     "top1": t3[0][0], "top1_conf": round(t3[0][1], 4), "top2": t3[1][0], "top3": t3[2][0],
+                     "hit_top1": int(hit1), "hit_top3": int(hit3)})
         done = [r for r in rows if r["detected"] == "yes"]
         print(f"Running score: top-1 {sum(r['hit_top1'] for r in done)}/{len(done)}   "
               f"top-3 {sum(r['hit_top3'] for r in done)}/{len(done)}")
 
     with open(log_dir / "results.csv", "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=["round", "target", "detected", "top1", "top1_conf", "top2", "top3",
-                                          "hit_top1", "hit_top3", "per_press_top1"])
+        w = csv.DictWriter(f, fieldnames=["round", "target", "detected", "clicks_used", "top1", "top1_conf",
+                                          "top2", "top3", "hit_top1", "hit_top3"])
         w.writeheader()
         w.writerows(rows)
 
